@@ -6,20 +6,25 @@
   <title>Dental Equity NYC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #17324d;
-      --muted: #5b6c7f;
-      --teal: #55bfb6;
-      --coral: #fb8368;
-      --teal-soft: #ddf7f4;
-      --coral-soft: #fff1ed;
-      --sky: #eef8fb;
+      --ink: #1f2933;
+      --muted: #5d6b7a;
+      --teal: #2f9c95;
+      --teal-bright: #55bfb6;
+      --coral: #f28c7b;
+      --teal-soft: #e7f7f5;
+      --coral-soft: #fff0ec;
+      --sky: #f1f9fb;
       --paper: #fffdf8;
-      --line: #dbe9e8;
       --white: #ffffff;
-      --shadow: 0 22px 70px rgba(23, 50, 77, 0.11);
+      --line: #dce9e8;
+      --radius: 8px;
+      --shadow: 0 14px 42px rgba(31, 41, 51, 0.08);
+      --section: clamp(58px, 8vw, 94px);
+      --gutter: clamp(20px, 5vw, 72px);
+      --max: 1160px;
     }
 
     * {
@@ -35,7 +40,7 @@
       font-family: "Poppins", Arial, Helvetica, sans-serif;
       color: var(--ink);
       background: var(--paper);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     img,
@@ -47,67 +52,6 @@
       color: inherit;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 14px clamp(20px, 5vw, 72px);
-      background: rgba(255, 253, 248, 0.94);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(14px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-
-    .brand img {
-      width: 172px;
-      height: auto;
-      display: block;
-    }
-
-    nav {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    nav a,
-    .button {
-      text-decoration: none;
-    }
-
-    .hero {
-      min-height: 86vh;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.76fr);
-      align-items: center;
-      gap: clamp(32px, 6vw, 84px);
-      padding: clamp(48px, 8vw, 96px) clamp(20px, 5vw, 72px) 42px;
-      background:
-        radial-gradient(circle at 86% 12%, rgba(85, 191, 182, 0.18), transparent 32%),
-        linear-gradient(110deg, rgba(238, 248, 251, 0.98), rgba(255, 241, 237, 0.74));
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      color: #257e76;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
     h1,
     h2,
     h3,
@@ -116,32 +60,114 @@
     }
 
     h1 {
-      max-width: 780px;
+      max-width: 820px;
       margin-bottom: 0;
-      font-size: clamp(46px, 7.6vw, 92px);
-      line-height: 0.98;
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 1.02;
       letter-spacing: 0;
     }
 
     h2 {
       margin-bottom: 0;
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.04;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.08;
       letter-spacing: 0;
     }
 
+    h3 {
+      margin-bottom: 10px;
+      font-size: 22px;
+      line-height: 1.18;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - (var(--gutter) * 2)));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 253, 248, 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      min-height: 78px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: 170px;
+      height: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    .hero {
+      padding: clamp(52px, 8vw, 92px) 0 var(--section);
+      background:
+        radial-gradient(circle at 86% 18%, rgba(85, 191, 182, 0.16), transparent 30%),
+        radial-gradient(circle at 12% 84%, rgba(242, 140, 123, 0.13), transparent 26%),
+        linear-gradient(115deg, #f4fbfc, #fff7f3 70%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.72fr);
+      align-items: center;
+      gap: clamp(34px, 6vw, 76px);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
     .hero-copy {
-      max-width: 660px;
-      margin: 24px 0 0;
-      color: #38536c;
-      font-size: clamp(18px, 2.2vw, 23px);
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: #415263;
+      font-size: clamp(17px, 2vw, 21px);
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 34px;
+      margin-top: 30px;
     }
 
     .button {
@@ -155,6 +181,8 @@
       background: var(--ink);
       color: white;
       font-weight: 800;
+      text-decoration: none;
+      text-align: center;
     }
 
     .button.secondary {
@@ -162,108 +190,205 @@
       color: var(--ink);
     }
 
-    .hero-visual {
-      display: grid;
-      gap: 16px;
+    .button.teal {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: white;
     }
 
-    .logo-feature {
+    .logo-card {
       display: grid;
       place-items: center;
-      min-height: 270px;
-      padding: 30px;
+      min-height: 280px;
+      padding: clamp(22px, 4vw, 36px);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.94);
       box-shadow: var(--shadow);
     }
 
-    .logo-feature img {
-      width: min(380px, 92%);
+    .logo-card img {
+      width: min(330px, 92%);
       height: auto;
     }
 
     .section {
-      padding: clamp(56px, 8vw, 96px) clamp(20px, 5vw, 72px);
+      padding: var(--section) 0;
     }
 
     .section.alt {
-      background: white;
+      background: var(--white);
+    }
+
+    .section.soft {
+      background: var(--sky);
     }
 
     .section-header {
-      max-width: 820px;
-      margin-bottom: 34px;
+      max-width: 840px;
+      margin-bottom: 32px;
     }
 
     .section-header p {
-      margin: 16px 0 0;
+      margin: 15px 0 0;
       color: var(--muted);
-      font-size: 19px;
+      font-size: 18px;
     }
 
-    .problem {
+    .section-lead {
+      max-width: 780px;
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .problem-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
       align-items: stretch;
     }
 
     .statement {
       display: grid;
       align-content: center;
-      padding: clamp(24px, 4vw, 44px);
+      min-height: 260px;
+      padding: clamp(24px, 4vw, 42px);
       border-left: 8px solid var(--coral);
-      border-radius: 8px;
+      border-radius: var(--radius);
       background: var(--coral-soft);
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(23px, 3vw, 34px);
       font-weight: 800;
-      line-height: 1.15;
+      line-height: 1.18;
     }
 
-    .text-block {
-      display: grid;
-      gap: 18px;
-      color: var(--muted);
-      font-size: 19px;
-    }
-
-    .mini-visual {
-      min-height: 220px;
+    .body-card {
+      padding: clamp(24px, 4vw, 36px);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      overflow: hidden;
-      background: var(--sky);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
-    .mini-visual svg {
-      display: block;
-      width: 100%;
-      height: 220px;
+    .body-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 18px;
     }
 
-    .grid {
+    .accept-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .accept-card {
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .accept-card.accepted {
+      border-top: 6px solid var(--teal);
+    }
+
+    .accept-card.rejected {
+      border-top: 6px solid var(--coral);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 13px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 10px;
+      align-items: start;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .accepted .mark,
+    .mark.good {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .rejected .mark,
+    .mark.no {
+      background: var(--coral-soft);
+      color: #c95f4f;
+    }
+
+    .steps-grid,
+    .cards-grid,
+    .goal-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .card {
-      min-height: 230px;
-      padding: 18px;
+    .step-card,
+    .info-card,
+    .goal-card {
+      padding: 22px;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: white;
-      box-shadow: 0 10px 34px rgba(23, 50, 77, 0.06);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-weight: 900;
+    }
+
+    .step-card p,
+    .info-card p,
+    .goal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
     }
 
     .card-visual {
       display: grid;
       place-items: center;
-      height: 116px;
-      border-radius: 8px;
+      height: 104px;
+      margin-bottom: 16px;
+      border-radius: var(--radius);
       background: var(--teal-soft);
       overflow: hidden;
+    }
+
+    .card-visual.coral {
+      background: var(--coral-soft);
     }
 
     .card-visual svg {
@@ -272,141 +397,245 @@
       height: 100%;
     }
 
-    .card strong {
-      display: block;
-      margin-top: 16px;
-      font-size: 20px;
-    }
-
-    .card span {
-      display: block;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .split {
+    .where-layout {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 38px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 28px;
       align-items: stretch;
     }
 
-    .list-panel {
-      padding: clamp(24px, 4vw, 42px);
-      border-radius: 8px;
-      background: var(--ink);
-      color: white;
-    }
-
-    .list-panel h3 {
-      margin-bottom: 20px;
-      font-size: 30px;
-    }
-
-    .list-panel ul {
+    .recipient-list {
       display: grid;
-      gap: 14px;
-      margin: 0;
+      gap: 12px;
+      margin: 22px 0 0;
       padding: 0;
       list-style: none;
     }
 
-    .list-panel li {
+    .recipient-list li {
       padding: 14px 16px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--teal);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
       font-weight: 700;
     }
 
-    .impact {
+    .where-visual {
       display: grid;
-      grid-template-columns: 1fr 0.85fr;
+      align-content: center;
+      min-height: 100%;
+      padding: clamp(24px, 4vw, 38px);
+      border-radius: var(--radius);
+      background: var(--teal-soft);
+      border: 1px solid var(--line);
+    }
+
+    .where-visual p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .goal-panel,
+    .office-panel,
+    .trust-panel,
+    .contact-panel {
+      padding: clamp(26px, 5vw, 46px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .goal-panel {
+      background: var(--white);
+    }
+
+    .goal-panel > p,
+    .office-panel > p,
+    .trust-panel > p,
+    .contact-panel > p {
+      max-width: 830px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .goal-grid {
+      margin-top: 26px;
+    }
+
+    .goal-card {
+      min-height: 132px;
+      box-shadow: none;
+    }
+
+    .goal-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 18px;
+    }
+
+    .office-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
       gap: 24px;
       align-items: center;
-      padding: clamp(24px, 4vw, 42px);
+      background: linear-gradient(135deg, var(--teal-soft), #ffffff);
+    }
+
+    .trust-panel {
+      background: var(--white);
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 7px 12px;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--sky);
+      border-radius: 999px;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .impact p {
-      margin-bottom: 0;
-      color: #37536e;
-      font-size: 19px;
+    .badge.coral {
+      background: var(--coral-soft);
+      color: #c95f4f;
     }
 
-    .impact-visual {
-      border-radius: 8px;
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 26px rgba(31, 41, 51, 0.05);
       overflow: hidden;
-      background: white;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 18px 20px;
+      color: var(--ink);
+      font-weight: 800;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      float: right;
+      color: var(--teal);
+      font-weight: 900;
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    details p {
+      margin: 0;
+      padding: 0 20px 20px;
+      color: var(--muted);
+    }
+
+    .contact-panel {
+      background: var(--white);
+    }
+
+    .contact-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-instruction {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--coral-soft);
+      color: #7c4a42;
+      font-weight: 700;
     }
 
     .contact-band {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 28px;
+      gap: 16px;
+      margin-top: 24px;
     }
 
     .contact-tile {
-      padding: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.13);
-      color: white;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--sky);
+      color: var(--ink);
       text-decoration: none;
       font-weight: 800;
+      overflow-wrap: anywhere;
     }
 
     .contact-tile small {
       display: block;
       margin-bottom: 6px;
-      color: rgba(255, 255, 255, 0.76);
+      color: var(--teal);
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
 
-    .cta {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 24px;
-      padding: clamp(28px, 5vw, 54px);
-      border-radius: 8px;
-      background:
-        linear-gradient(135deg, rgba(85, 191, 182, 0.96), rgba(251, 131, 104, 0.92)),
-        var(--teal);
-      color: white;
-      overflow: hidden;
-    }
-
-    .cta h2 {
-      font-size: clamp(32px, 5vw, 54px);
-    }
-
-    .cta p {
-      max-width: 820px;
-      margin: 14px 0 0;
-      font-size: 20px;
-      color: rgba(255, 255, 255, 0.92);
-    }
-
     footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 28px clamp(20px, 5vw, 72px);
+      padding: 34px 0 28px;
       border-top: 1px solid var(--line);
+      background: var(--white);
       color: var(--muted);
       font-size: 14px;
     }
 
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .footer-title {
+      display: block;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 6px;
+      text-align: right;
+      font-weight: 700;
+    }
+
     .footer-note {
       display: inline-flex;
-      margin: 0 clamp(20px, 5vw, 72px) 30px;
+      margin-top: 16px;
       padding: 10px 14px;
       border-radius: 6px;
       background: var(--coral-soft);
@@ -416,182 +645,268 @@
     }
 
     @media (max-width: 980px) {
-      .site-header {
-        position: static;
+      .nav-wrap {
         align-items: flex-start;
         flex-direction: column;
+        padding: 14px 0;
       }
 
-      nav {
-        flex-wrap: wrap;
-      }
-
-      .hero,
-      .problem,
-      .split,
-      .impact,
-      .cta {
+      .hero-grid,
+      .problem-grid,
+      .where-layout,
+      .office-panel,
+      .contact-top,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .grid,
+      .steps-grid,
+      .cards-grid,
+      .goal-grid,
       .contact-band {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .footer-links {
+        text-align: left;
+      }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 660px) {
+      :root {
+        --gutter: 18px;
+      }
+
       .brand img {
         width: 148px;
       }
 
-      .grid,
-      .contact-band {
-        grid-template-columns: 1fr;
+      nav {
+        gap: 8px 14px;
+        font-size: 13px;
       }
 
-      .actions {
-        flex-direction: column;
+      h1 {
+        font-size: clamp(34px, 11vw, 48px);
+      }
+
+      .hero {
+        padding-top: 42px;
+      }
+
+      .logo-card {
+        min-height: 220px;
+      }
+
+      .actions,
+      .contact-top {
+        align-items: stretch;
       }
 
       .button {
         width: 100%;
       }
 
-      footer {
-        flex-direction: column;
+      .accept-grid,
+      .steps-grid,
+      .cards-grid,
+      .goal-grid,
+      .contact-band {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="Dental Equity home">
-      <img src="logo.png" alt="Dental Equity logo" />
-    </a>
-    <nav aria-label="Main navigation">
-      <a href="#problem">Problem</a>
-      <a href="#work">What We Do</a>
-      <a href="#where">Where Supplies Go</a>
-      <a href="#help">Contact</a>
-    </nav>
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Dental Equity NYC home">
+        <img src="logo.png" alt="Dental Equity logo" />
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#problem">Problem</a>
+        <a href="#accept">What We Accept</a>
+        <a href="#process">How It Works</a>
+        <a href="#offices">Dental Offices</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <div>
-        <p class="eyebrow">New York City dental access</p>
-        <h1>Making everyday oral care easier to access.</h1>
-        <p class="hero-copy">
-          Dental Equity collects sealed, unused oral hygiene supplies and gets them to NYC students,
-          families, shelter residents, and community programs that need them.
-        </p>
-        <div class="actions">
-          <a class="button" href="mailto:dentalequity@gmail.com">Donate Supplies</a>
-          <a class="button secondary" href="#work">See How It Works</a>
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">New York City oral hygiene access</p>
+          <h1>Collecting sealed oral hygiene supplies for NYC communities.</h1>
+          <p class="hero-copy">
+            Dental Equity NYC collects sealed, unused toothbrushes, toothpaste, floss, and dental kits
+            from local donors and distributes them to schools, shelters, food pantries, and community
+            organizations serving people with limited access to basic oral care.
+          </p>
+          <div class="actions">
+            <a class="button" href="#contact">Donate Supplies</a>
+            <a class="button secondary" href="#process">See How It Works</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-visual">
-        <div class="logo-feature">
+        <div class="logo-card">
           <img src="logo.png" alt="Dental Equity logo with smiling tooth and heart" />
         </div>
       </div>
     </section>
 
     <section id="problem" class="section">
-      <div class="problem">
+      <div class="container problem-grid">
         <div class="statement">
           Not everyone has consistent access to basic oral hygiene supplies.
         </div>
-        <div class="text-block">
+        <div class="body-card">
           <p>
             For many students, families, and shelter residents, items like toothpaste, toothbrushes,
-            and floss are not always easy to replace. Dental Equity helps close that gap by moving
-            unused supplies from people and places that have extra to community partners that can
-            distribute them with care.
+            and floss are not always easy to replace. Dental Equity NYC focuses on moving safe,
+            sealed supplies from local donors to community organizations already serving New Yorkers.
           </p>
-          <div class="mini-visual" aria-label="Basic oral hygiene supplies illustration">
-            <svg viewBox="0 0 640 220" role="img">
-              <rect width="640" height="220" fill="#eef8fb" />
-              <rect x="80" y="82" width="170" height="50" rx="14" fill="#fb8368" />
-              <rect x="112" y="97" width="84" height="9" rx="5" fill="#fffdf8" />
-              <rect x="294" y="44" width="56" height="132" rx="28" fill="#55bfb6" />
-              <rect x="312" y="20" width="20" height="50" rx="10" fill="#17324d" />
-              <rect x="396" y="76" width="140" height="78" rx="10" fill="#ffffff" stroke="#dbe9e8" />
-              <path d="M424 102h78M424 126h48" stroke="#55bfb6" stroke-width="10" stroke-linecap="round" />
-            </svg>
-          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="accept" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Donation guidelines</p>
+          <h2>What We Accept</h2>
+          <p>Clear standards help keep donations safe, useful, and easy for community partners to distribute.</p>
+        </div>
+
+        <div class="accept-grid">
+          <article class="accept-card accepted">
+            <h3>Accepted Items</h3>
+            <ul class="check-list">
+              <li><span class="mark good">✓</span><span>Sealed toothbrushes</span></li>
+              <li><span class="mark good">✓</span><span>Sealed toothpaste</span></li>
+              <li><span class="mark good">✓</span><span>Sealed floss</span></li>
+              <li><span class="mark good">✓</span><span>Sealed dental kits</span></li>
+              <li><span class="mark good">✓</span><span>Unused oral hygiene sample packs</span></li>
+            </ul>
+          </article>
+
+          <article class="accept-card rejected">
+            <h3>Not Accepted</h3>
+            <ul class="check-list">
+              <li><span class="mark no">×</span><span>Opened products</span></li>
+              <li><span class="mark no">×</span><span>Used items</span></li>
+              <li><span class="mark no">×</span><span>Expired items</span></li>
+              <li><span class="mark no">×</span><span>Prescription products</span></li>
+              <li><span class="mark no">×</span><span>Clinical tools or dental instruments</span></li>
+              <li><span class="mark no">×</span><span>Anything requiring professional supervision</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">How it works</p>
+          <h2>How Donation Works</h2>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <h3>Donate</h3>
+            <p>Dental offices, businesses, schools, and community donors offer sealed oral hygiene supplies.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <h3>Verify</h3>
+            <p>We check that all items are sealed, unused, and unexpired.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <h3>Sort</h3>
+            <p>Supplies are organized into hygiene kits or donation boxes.</p>
+          </article>
+          <article class="step-card">
+            <div class="step-number">4</div>
+            <h3>Distribute</h3>
+            <p>Items are delivered to NYC schools, shelters, food pantries, and community organizations.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="work" class="section alt">
-      <div class="section-header">
-        <p class="eyebrow">What We Do</p>
-        <h2>We collect sealed, unused dental hygiene products from across NYC.</h2>
-        <p>Every donation starts as something simple and becomes part of a more reliable care routine.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <div class="card-visual">
-            <svg viewBox="0 0 180 110" role="img" aria-label="Dental clinic">
-              <rect width="180" height="110" fill="#ddf7f4" />
-              <rect x="48" y="34" width="84" height="60" rx="9" fill="#ffffff" />
-              <path d="M90 48v32M74 64h32" stroke="#55bfb6" stroke-width="9" stroke-linecap="round" />
-            </svg>
-          </div>
-          <strong>Dental clinics</strong>
-          <span>Extra unopened supplies from care teams.</span>
-        </article>
-        <article class="card">
-          <div class="card-visual">
-            <svg viewBox="0 0 180 110" role="img" aria-label="Businesses">
-              <rect width="180" height="110" fill="#fff1ed" />
-              <rect x="46" y="38" width="88" height="52" rx="8" fill="#ffffff" />
-              <rect x="62" y="24" width="56" height="22" rx="8" fill="#fb8368" />
-              <path d="M66 64h48" stroke="#55bfb6" stroke-width="9" stroke-linecap="round" />
-            </svg>
-          </div>
-          <strong>Businesses</strong>
-          <span>Office drives and workplace giving.</span>
-        </article>
-        <article class="card">
-          <div class="card-visual">
-            <svg viewBox="0 0 180 110" role="img" aria-label="Schools">
-              <rect width="180" height="110" fill="#eef8fb" />
-              <path d="M42 50l48-26 48 26-48 26z" fill="#55bfb6" />
-              <path d="M60 70v18h60V70" fill="#ffffff" stroke="#dbe9e8" />
-              <path d="M140 54v24" stroke="#fb8368" stroke-width="7" stroke-linecap="round" />
-            </svg>
-          </div>
-          <strong>Schools</strong>
-          <span>Student-led collections and community support.</span>
-        </article>
-        <article class="card">
-          <div class="card-visual">
-            <svg viewBox="0 0 180 110" role="img" aria-label="Community donors">
-              <rect width="180" height="110" fill="#ddf7f4" />
-              <path d="M90 34c16-19 44 2 21 29L90 85 69 63C46 36 74 15 90 34z" fill="#fb8368" />
-              <path d="M54 88h72" stroke="#17324d" stroke-width="7" stroke-linecap="round" opacity="0.45" />
-            </svg>
-          </div>
-          <strong>Community donors</strong>
-          <span>Neighbors helping neighbors across NYC.</span>
-        </article>
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">What We Do</p>
+          <h2>We collect sealed, unused dental hygiene products from across NYC.</h2>
+        </div>
+
+        <div class="cards-grid">
+          <article class="info-card">
+            <div class="card-visual">
+              <svg viewBox="0 0 180 110" role="img" aria-label="Dental office icon">
+                <rect width="180" height="110" fill="#e7f7f5" />
+                <rect x="48" y="34" width="84" height="60" rx="9" fill="#ffffff" />
+                <path d="M90 48v32M74 64h32" stroke="#2f9c95" stroke-width="9" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Dental Offices</h3>
+            <p>Extra sealed samples and patient supplies from care teams.</p>
+          </article>
+          <article class="info-card">
+            <div class="card-visual coral">
+              <svg viewBox="0 0 180 110" role="img" aria-label="Business donation icon">
+                <rect width="180" height="110" fill="#fff0ec" />
+                <rect x="46" y="38" width="88" height="52" rx="8" fill="#ffffff" />
+                <rect x="62" y="24" width="56" height="22" rx="8" fill="#f28c7b" />
+                <path d="M66 64h48" stroke="#2f9c95" stroke-width="9" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Businesses</h3>
+            <p>Workplace drives and local giving.</p>
+          </article>
+          <article class="info-card">
+            <div class="card-visual">
+              <svg viewBox="0 0 180 110" role="img" aria-label="School collection icon">
+                <rect width="180" height="110" fill="#e7f7f5" />
+                <path d="M42 50l48-26 48 26-48 26z" fill="#2f9c95" />
+                <path d="M60 70v18h60V70" fill="#ffffff" stroke="#dce9e8" />
+                <path d="M140 54v24" stroke="#f28c7b" stroke-width="7" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Schools</h3>
+            <p>Student-led collections and community support.</p>
+          </article>
+          <article class="info-card">
+            <div class="card-visual coral">
+              <svg viewBox="0 0 180 110" role="img" aria-label="Community donor icon">
+                <rect width="180" height="110" fill="#fff0ec" />
+                <path d="M90 34c16-19 44 2 21 29L90 85 69 63C46 36 74 15 90 34z" fill="#f28c7b" />
+                <path d="M54 88h72" stroke="#1f2933" stroke-width="7" stroke-linecap="round" opacity="0.45" />
+              </svg>
+            </div>
+            <h3>Community Donors</h3>
+            <p>Neighbors helping neighbors across NYC.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="where" class="section">
-      <div class="split">
-        <div class="list-panel">
-          <h3>Where Supplies Go</h3>
-          <ul>
+      <div class="container where-layout">
+        <div>
+          <p class="eyebrow">Distribution</p>
+          <h2>Where Supplies Go</h2>
+          <p class="section-lead">
+            Donated supplies are given to organizations that already serve communities with limited
+            access to basic hygiene products.
+          </p>
+          <ul class="recipient-list">
             <li>Under-resourced schools</li>
             <li>Shelters</li>
             <li>Youth centers</li>
@@ -599,37 +914,154 @@
             <li>Community organizations</li>
           </ul>
         </div>
-        <div class="impact">
-          <div>
-            <p class="eyebrow">Community first</p>
-            <h2>Small essentials can make a daily routine possible.</h2>
-            <p>
-              A fresh toothbrush, toothpaste, and floss are simple items, but they support confidence,
-              health, school readiness, and dignity.
-            </p>
-          </div>
-          <div class="impact-visual" aria-label="Community care bag illustration">
-            <svg viewBox="0 0 320 320" role="img">
-              <rect width="320" height="320" fill="#ffffff" />
-              <circle cx="238" cy="82" r="58" fill="#ddf7f4" />
-              <path d="M82 94h156l30 160H52z" fill="#fff1ed" stroke="#dbe9e8" />
-              <path d="M114 94c10-48 82-48 92 0" fill="none" stroke="#55bfb6" stroke-width="14" stroke-linecap="round" />
-              <path d="M160 144c20-24 58 4 24 42l-24 25-24-25c-34-38 4-66 24-42z" fill="#fb8368" />
-            </svg>
+        <div class="where-visual">
+          <h3>Community-based distribution</h3>
+          <p>
+            Supplies are intended to move through trusted local settings where students, families,
+            and shelter residents can access basic hygiene items with dignity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="goal" class="section soft">
+      <div class="container">
+        <div class="goal-panel">
+          <p class="eyebrow">Current Goal</p>
+          <h2>Our first goal is to prepare 100 oral hygiene kits for NYC community organizations.</h2>
+          <p>
+            We are currently seeking sealed toothbrushes, toothpaste, floss, and dental kits from local
+            dental offices and community donors.
+          </p>
+          <div class="goal-grid">
+            <article class="goal-card">
+              <strong>100 Kit Goal</strong>
+              <p>A clear first milestone for easy planning.</p>
+            </article>
+            <article class="goal-card">
+              <strong>Sealed Items Only</strong>
+              <p>Safety standards guide every donation.</p>
+            </article>
+            <article class="goal-card">
+              <strong>NYC Community Distribution</strong>
+              <p>Supplies are prepared for local organizations.</p>
+            </article>
+            <article class="goal-card">
+              <strong>Local Donor Partnerships</strong>
+              <p>Dental offices and neighbors can help directly.</p>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="help" class="section alt">
-      <div class="cta">
-        <div>
-          <p class="eyebrow">Get involved</p>
-          <h2>Have sealed supplies to share?</h2>
+    <section id="offices" class="section alt">
+      <div class="container">
+        <div class="office-panel">
+          <div>
+            <p class="eyebrow">For Dental Offices</p>
+            <h2>Have extra sealed sample packs or patient supplies?</h2>
+            <p>
+              Dental Equity NYC accepts sealed, unused, and unexpired oral hygiene supplies. We can
+              coordinate local pickup and provide confirmation once supplies are sorted for donation.
+            </p>
+          </div>
+          <a class="button teal" href="#contact">Offer Supplies</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety" class="section">
+      <div class="container">
+        <div class="trust-panel">
+          <p class="eyebrow">Credibility</p>
+          <h2>Student-Led. Safety-Focused. Community-Based.</h2>
           <p>
-            Partner with Dental Equity to collect unused dental hygiene products and help make basic
-            oral care more accessible throughout New York City.
+            Dental Equity NYC only collects sealed, unused, and unexpired oral hygiene supplies.
+            Donations are sorted before being distributed through NYC community organizations serving
+            students, families, and shelter residents.
           </p>
+          <div class="badges">
+            <span class="badge">Sealed Items Only</span>
+            <span class="badge coral">NYC-Based</span>
+            <span class="badge">Student-Led</span>
+            <span class="badge coral">Safety-Focused</span>
+            <span class="badge">Community Distribution</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">About Dental Equity NYC</p>
+          <h2>A student-led project focused on practical oral hygiene access.</h2>
+          <p>
+            Dental Equity NYC is a student-led community project started to improve access to basic oral
+            hygiene supplies across New York City. The project focuses on collecting sealed supplies from
+            local donors and distributing them through community organizations that serve students,
+            families, and shelter residents.
+          </p>
+          <p>Started by Tsz Yin Zheng, a NYC student interested in healthcare access and community service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common donation questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details>
+            <summary>What items do you accept?</summary>
+            <p>We accept sealed, unused, and unexpired toothbrushes, toothpaste, floss, dental kits, and oral hygiene sample packs.</p>
+          </details>
+          <details>
+            <summary>Do you accept opened items?</summary>
+            <p>No. For safety, we only accept sealed and unused items.</p>
+          </details>
+          <details>
+            <summary>Can dental offices donate sample packs?</summary>
+            <p>Yes. We accept sealed and unexpired sample packs from dental offices.</p>
+          </details>
+          <details>
+            <summary>Can you pick up donations?</summary>
+            <p>Yes, we can coordinate local pickup when possible.</p>
+          </details>
+          <details>
+            <summary>Where do donations go?</summary>
+            <p>Supplies are donated through NYC schools, shelters, food pantries, youth centers, and community organizations.</p>
+          </details>
+          <details>
+            <summary>Do you accept clinical tools or prescription products?</summary>
+            <p>No. We do not accept prescription products, clinical tools, dental instruments, medications, or anything requiring professional supervision.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-top">
+            <div>
+              <p class="eyebrow">Contact</p>
+              <h2>Have sealed supplies to share?</h2>
+              <p>
+                Partner with Dental Equity NYC to help make basic oral hygiene supplies more accessible
+                across New York City.
+              </p>
+            </div>
+            <a class="button teal" href="mailto:dentalequity@gmail.com?subject=Dental%20Equity%20NYC%20Donation%20Offer">Email Us About a Donation</a>
+          </div>
+          <div class="contact-instruction">
+            When reaching out, please include your organization name, item type, approximate quantity,
+            and best pickup time. The phone number below can be replaced or removed if needed.
+          </div>
           <div class="contact-band" aria-label="Contact information">
             <a class="contact-tile" href="mailto:dentalequity@gmail.com">
               <small>Email</small>
@@ -645,15 +1077,23 @@
             </a>
           </div>
         </div>
-        <a class="button" href="mailto:dentalequity@gmail.com">Contact Us</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <span>Dental Equity NYC</span>
-    <span>dentalequity@gmail.com | 929-500-3369 | Instagram: @dentalequity</span>
+    <div class="container footer-grid">
+      <div>
+        <span class="footer-title">Dental Equity NYC</span>
+        <p>Student-led oral hygiene donation project</p>
+        <p>Collecting sealed, unused, and unexpired oral hygiene supplies for NYC communities.</p>
+        <span class="footer-note">Led By Tsz Yin Zheng</span>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:dentalequity@gmail.com">dentalequity@gmail.com</a>
+        <a href="https://instagram.com/dentalequity">Instagram: @dentalequity</a>
+      </div>
+    </div>
   </footer>
-  <div class="footer-note">Led By Tsz Yin Zheng</div>
 </body>
 </html>

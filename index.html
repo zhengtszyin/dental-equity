@@ -1,9 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dental Equity NYC</title>
+  <title>Dental Equity | Student-Led Oral Hygiene Donation Project</title>
+  <meta name="description" content="Dental Equity is a student-led project collecting sealed oral hygiene supplies for NYC schools, shelters, food pantries, youth centers, and community organizations." />
+  <meta property="og:title" content="Dental Equity | Student-Led Oral Hygiene Donation Project" />
+  <meta property="og:description" content="A student-led project collecting sealed, unused, and unexpired oral hygiene supplies for NYC communities." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:site_name" content="Dental Equity" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -14,8 +20,8 @@
       --teal: #2f9c95;
       --teal-bright: #55bfb6;
       --coral: #f28c7b;
-      --teal-soft: #e7f7f5;
-      --coral-soft: #fff0ec;
+      --teal-soft: #eaf7f5;
+      --coral-soft: #fdedea;
       --sky: #f1f9fb;
       --paper: #fffdf8;
       --white: #ffffff;
@@ -102,6 +108,12 @@
       min-height: 78px;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
     .brand {
       display: flex;
       align-items: center;
@@ -130,6 +142,14 @@
 
     nav a:hover {
       color: var(--teal);
+    }
+
+    .nav-button {
+      min-height: 42px;
+      padding: 10px 16px;
+      border-color: var(--teal);
+      background: var(--teal);
+      white-space: nowrap;
     }
 
     .hero {
@@ -271,9 +291,29 @@
     }
 
     .body-card p {
-      margin-bottom: 0;
+      margin-bottom: 16px;
       color: var(--muted);
       font-size: 18px;
+    }
+
+    .body-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .problem-point {
+      padding: 14px;
+      border-radius: var(--radius);
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 800;
     }
 
     .accept-grid {
@@ -490,6 +530,23 @@
       background: var(--white);
     }
 
+    .about-note {
+      margin-top: 28px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .about-note h3 {
+      margin-bottom: 8px;
+    }
+
+    .about-note p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .badges {
       display: flex;
       flex-wrap: wrap;
@@ -651,6 +708,12 @@
         padding: 14px 0;
       }
 
+      .nav-actions {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
       .hero-grid,
       .problem-grid,
       .where-layout,
@@ -663,7 +726,8 @@
       .steps-grid,
       .cards-grid,
       .goal-grid,
-      .contact-band {
+      .contact-band,
+      .problem-points {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -711,7 +775,8 @@
       .steps-grid,
       .cards-grid,
       .goal-grid,
-      .contact-band {
+      .contact-band,
+      .problem-points {
         grid-template-columns: 1fr;
       }
     }
@@ -720,17 +785,19 @@
 <body>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="Dental Equity NYC home">
+      <a class="brand" href="#top" aria-label="Dental Equity home">
         <img src="logo.png" alt="Dental Equity logo" />
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#problem">Problem</a>
-        <a href="#accept">What We Accept</a>
-        <a href="#process">How It Works</a>
-        <a href="#offices">Dental Offices</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav aria-label="Main navigation">
+          <a href="#problem">Mission</a>
+          <a href="#accept">What We Accept</a>
+          <a href="#process">How It Works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="button nav-button" href="#contact">Donate Supplies</a>
+      </div>
     </div>
   </header>
 
@@ -741,7 +808,7 @@
           <p class="eyebrow">New York City oral hygiene access</p>
           <h1>Collecting sealed oral hygiene supplies for NYC communities.</h1>
           <p class="hero-copy">
-            Dental Equity NYC collects sealed, unused toothbrushes, toothpaste, floss, and dental kits
+            Dental Equity collects sealed, unused toothbrushes, toothpaste, floss, and dental kits
             from local donors and distributes them to schools, shelters, food pantries, and community
             organizations serving people with limited access to basic oral care.
           </p>
@@ -760,14 +827,23 @@
     <section id="problem" class="section">
       <div class="container problem-grid">
         <div class="statement">
-          Not everyone has consistent access to basic oral hygiene supplies.
+          The Problem
         </div>
         <div class="body-card">
           <p>
-            For many students, families, and shelter residents, items like toothpaste, toothbrushes,
-            and floss are not always easy to replace. Dental Equity NYC focuses on moving safe,
-            sealed supplies from local donors to community organizations already serving New Yorkers.
+            Basic oral hygiene supplies are easy to overlook, but not everyone has consistent access
+            to toothbrushes, toothpaste, floss, and dental kits.
           </p>
+          <p>
+            Limited access to oral hygiene supplies can affect comfort, confidence, school attendance,
+            and overall well-being. Dental Equity focuses on one practical step: helping basic supplies
+            reach organizations already serving NYC communities.
+          </p>
+          <div class="problem-points" aria-label="Project focus areas">
+            <div class="problem-point">Practical supply access</div>
+            <div class="problem-point">Safety-first donations</div>
+            <div class="problem-point">NYC community distribution</div>
+          </div>
         </div>
       </div>
     </section>
@@ -784,23 +860,23 @@
           <article class="accept-card accepted">
             <h3>Accepted Items</h3>
             <ul class="check-list">
-              <li><span class="mark good">✓</span><span>Sealed toothbrushes</span></li>
-              <li><span class="mark good">✓</span><span>Sealed toothpaste</span></li>
-              <li><span class="mark good">✓</span><span>Sealed floss</span></li>
-              <li><span class="mark good">✓</span><span>Sealed dental kits</span></li>
-              <li><span class="mark good">✓</span><span>Unused oral hygiene sample packs</span></li>
+              <li><span class="mark good" aria-hidden="true">+</span><span>Sealed toothbrushes</span></li>
+              <li><span class="mark good" aria-hidden="true">+</span><span>Sealed toothpaste</span></li>
+              <li><span class="mark good" aria-hidden="true">+</span><span>Sealed floss</span></li>
+              <li><span class="mark good" aria-hidden="true">+</span><span>Sealed dental kits</span></li>
+              <li><span class="mark good" aria-hidden="true">+</span><span>Sealed oral hygiene sample packs</span></li>
             </ul>
           </article>
 
           <article class="accept-card rejected">
             <h3>Not Accepted</h3>
             <ul class="check-list">
-              <li><span class="mark no">×</span><span>Opened products</span></li>
-              <li><span class="mark no">×</span><span>Used items</span></li>
-              <li><span class="mark no">×</span><span>Expired items</span></li>
-              <li><span class="mark no">×</span><span>Prescription products</span></li>
-              <li><span class="mark no">×</span><span>Clinical tools or dental instruments</span></li>
-              <li><span class="mark no">×</span><span>Anything requiring professional supervision</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Opened products</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Used items</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Expired items</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Prescription products</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Clinical tools or dental instruments</span></li>
+              <li><span class="mark no" aria-hidden="true">x</span><span>Anything requiring professional supervision</span></li>
             </ul>
           </article>
         </div>
@@ -833,7 +909,7 @@
           <article class="step-card">
             <div class="step-number">4</div>
             <h3>Distribute</h3>
-            <p>Items are delivered to NYC schools, shelters, food pantries, and community organizations.</p>
+            <p>Items are delivered through NYC schools, shelters, food pantries, youth centers, and community organizations.</p>
           </article>
         </div>
       </div>
@@ -912,6 +988,7 @@
             <li>Youth centers</li>
             <li>Food pantries</li>
             <li>Community organizations</li>
+            <li>Immigrant and family support programs</li>
           </ul>
         </div>
         <div class="where-visual">
@@ -962,8 +1039,9 @@
             <p class="eyebrow">For Dental Offices</p>
             <h2>Have extra sealed sample packs or patient supplies?</h2>
             <p>
-              Dental Equity NYC accepts sealed, unused, and unexpired oral hygiene supplies. We can
-              coordinate local pickup and provide confirmation once supplies are sorted for donation.
+              Dental Equity accepts sealed, unused, and unexpired oral hygiene supplies. We can
+              coordinate local pickup when possible and confirm that donations are sorted for
+              community distribution.
             </p>
           </div>
           <a class="button teal" href="#contact">Offer Supplies</a>
@@ -977,9 +1055,13 @@
           <p class="eyebrow">Credibility</p>
           <h2>Student-Led. Safety-Focused. Community-Based.</h2>
           <p>
-            Dental Equity NYC only collects sealed, unused, and unexpired oral hygiene supplies.
+            Dental Equity only collects sealed, unused, and unexpired oral hygiene supplies.
             Donations are sorted before being distributed through NYC community organizations serving
             students, families, and shelter residents.
+          </p>
+          <p>
+            Dental Equity is a student-led project. We do not accept prescription products, clinical
+            tools, dental instruments, medications, or anything requiring professional supervision.
           </p>
           <div class="badges">
             <span class="badge">Sealed Items Only</span>
@@ -988,22 +1070,16 @@
             <span class="badge coral">Safety-Focused</span>
             <span class="badge">Community Distribution</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section alt">
-      <div class="container">
-        <div class="section-header">
-          <p class="eyebrow">About Dental Equity NYC</p>
-          <h2>A student-led project focused on practical oral hygiene access.</h2>
-          <p>
-            Dental Equity NYC is a student-led community project started to improve access to basic oral
-            hygiene supplies across New York City. The project focuses on collecting sealed supplies from
-            local donors and distributing them through community organizations that serve students,
-            families, and shelter residents.
-          </p>
-          <p>Started by Tsz Yin Zheng, a NYC student interested in healthcare access and community service.</p>
+          <div class="about-note">
+            <h3>About Dental Equity</h3>
+            <p>
+              Dental Equity is a student-led community project started to improve access to basic oral
+              hygiene supplies across New York City. The project focuses on collecting sealed supplies
+              from local donors and distributing them through community organizations that serve
+              students, families, and shelter residents. Started by Tsz Yin Zheng, a NYC student
+              interested in healthcare access and community service.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -1052,11 +1128,11 @@
               <p class="eyebrow">Contact</p>
               <h2>Have sealed supplies to share?</h2>
               <p>
-                Partner with Dental Equity NYC to help make basic oral hygiene supplies more accessible
+                Partner with Dental Equity to help make basic oral hygiene supplies more accessible
                 across New York City.
               </p>
             </div>
-            <a class="button teal" href="mailto:dentalequity@gmail.com?subject=Dental%20Equity%20NYC%20Donation%20Offer">Email Us About a Donation</a>
+            <a class="button teal" href="mailto:dentalequity@gmail.com?subject=Dental%20Supply%20Donation&body=Hello%20Dental%20Equity%2C%0A%0AI%20would%20like%20to%20donate%20sealed%20oral%20hygiene%20supplies.%0A%0AOrganization%20name%3A%20%5B%20%5D%0AItem%20type%3A%20%5B%20%5D%0AApproximate%20quantity%3A%20%5B%20%5D%0ABest%20pickup%20time%3A%20%5B%20%5D%0A">Email Us About a Donation</a>
           </div>
           <div class="contact-instruction">
             When reaching out, please include your organization name, item type, approximate quantity,
@@ -1071,10 +1147,7 @@
               <small>Phone</small>
               929-500-3369
             </a>
-            <a class="contact-tile" href="https://instagram.com/dentalequity">
-              <small>Instagram</small>
-              @dentalequity
-            </a>
+          </a>
           </div>
         </div>
       </div>
@@ -1084,14 +1157,13 @@
   <footer>
     <div class="container footer-grid">
       <div>
-        <span class="footer-title">Dental Equity NYC</span>
+        <span class="footer-title">Dental Equity</span>
         <p>Student-led oral hygiene donation project</p>
         <p>Collecting sealed, unused, and unexpired oral hygiene supplies for NYC communities.</p>
         <span class="footer-note">Led By Tsz Yin Zheng</span>
       </div>
       <div class="footer-links">
         <a href="mailto:dentalequity@gmail.com">dentalequity@gmail.com</a>
-        <a href="https://instagram.com/dentalequity">Instagram: @dentalequity</a>
       </div>
     </div>
   </footer>
